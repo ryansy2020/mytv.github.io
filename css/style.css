@@ -88,7 +88,7 @@ a {
     height: 0rem;
     color: white;
     position: fixed;
-    z-index: 1000;
+    z-index: 500;
     width: 100%;
     transition: 2s all ease-in-out;
     box-shadow: 0 5px 5px var(--lightDark);
@@ -608,6 +608,7 @@ main {
     background-position:bottom;
     background-repeat: no-repeat;
 
+
 }
 
 
@@ -644,7 +645,6 @@ main {
     display: flex;
     justify-content: center;
     color: white;
-
 }
 
 .trending-container {
@@ -657,7 +657,6 @@ main {
     margin: 1rem;
     scroll-behavior: smooth;
     padding: 1rem;
-
     
 }
 
@@ -694,7 +693,7 @@ main {
     align-items: center;
     width: 250px;
     height: 350px;
-   border-radius: 1rem;
+   border-radius: 4rem 0 2rem 0;
    overflow: hidden;
    box-shadow:  0 15px 20px var(--dark);
    margin: 0.75rem;
@@ -796,7 +795,7 @@ main {
     transform: translateY(140%);
     transition: 1s all ease-in-out;
     font-size: 1.25rem;
-    z-index: 900;
+    z-index: 1000;
 }
 
 .button-icon {
@@ -1138,7 +1137,6 @@ main {
         transform: translateX(1%);
 
     }
-    
 
     .box-modal {
 
@@ -1197,7 +1195,7 @@ main {
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        width: 650px;
+        width: 550px;
         height: 350px;
         background-size: cover;
         background-position: center;
@@ -1206,19 +1204,8 @@ main {
         box-shadow: 0 15px 20px var(--dark);
         z-index: 2000;
         margin: 1rem;
-        position: relative;
-    }  
-    
-    
-    .video-modal {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: 200;
-    }
-
+        
+    }   
 
     .img-movies {
         width: 450px;
@@ -1273,30 +1260,19 @@ main {
         display: flex;
         flex-direction: column;
         width: 100%;
-        width: 280px;
-        height: 320px;
-        justify-content: center;
-        padding: 0.5rem;
 
     }
 
     .category-info {
         display: flex;
-        flex-direction: row;
-        font-size: 0.7rem;
-        justify-content: center;
-        margin: 1rem;
+        flex-direction: column;
     }
 
-    .category-info span {
-        text-align: center;
-    }
 
     .social-icon {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-        justify-content: center;
         
     }
 
@@ -1304,11 +1280,7 @@ main {
         display: flex;
         width: 100%;
         height: 200px;
-        align-items: top;
-        text-align: left;
-        letter-spacing: 1px;
-        overflow: hidden;
-        font-size: 0.8rem;
+        align-items: center;
     }
 
     .sad-btn, .like-btn, .hearth-btn {
@@ -1317,16 +1289,6 @@ main {
         color: white;
        
     } 
-
-    .movies-title {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 40px;
-        color: white;  
-    
-    }
 
 /*--------X-------modal Movies----------X-------*/
 /*----X-----------Trending Media Scroll------------X-----*/
@@ -1686,7 +1648,7 @@ footer {
 /*-----------Nav-----------------*/
     .nav {
         min-height:14vh;
-        background: var(--dark);
+
     }
 
     .nav-toggle {
@@ -1765,7 +1727,6 @@ footer {
 .nav {
 
     min-height:8vh;
-    background: var(--dark);
 
 }
 
@@ -1803,9 +1764,6 @@ footer {
 
 /*-----------modal-----------------*/  
 
-.title-category {
-    margin-top: 11%;
-}
 
 .box-modal {
 
@@ -1828,7 +1786,7 @@ footer {
     margin: 4rem;
     position: fixed; 
     z-index: 2000 !important;  
-    top: 10%;
+
 }
 /*-----------countdown info-----------------*/  
  
@@ -1873,7 +1831,6 @@ footer {
 .nav {
 
     min-height:18vh;
-    background: var(--dark);
 
 }
 
@@ -1972,7 +1929,6 @@ footer {
 .nav {
 
     min-height:8vh;
-    background: var(--dark);
 
 }
 
@@ -2093,10 +2049,6 @@ footer {
     }
 
 /*-----------Nav-----------------*/
-    .nav{
-        background: var(--dark);
-    }
-
 .nav-logo {
     align-items: center !important;
     justify-content: center;
@@ -2135,16 +2087,12 @@ footer {
 
 /*-----------modal-----------------*/  
 
-.title-category {
-    margin-top: 18%;
-}
-
 
 .box-modal {
 
     display: flex;
-    width: 320px;
-    height: 600px;
+    width: 350px;
+    height: 550px;
     flex-direction: column;
     align-items: center;
     justify-content: center !important;
@@ -2161,37 +2109,35 @@ footer {
     margin: 4rem;
     position: absolute; 
     z-index: 2000 !important;  
-    margin-top: 3%;
 
 }
 
 .img-banner {
     display: flex;
     flex-direction: column;
-    align-items: top;
+    align-items: center;
     justify-content: center;
-    width: 300px;
+    width: 350px;
     height: 200px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 2rem 1rem 0rem 1rem;
+    border-radius: 0rem 3rem 0rem 3rem;
     box-shadow: 0 15px 20px var(--dark);
     z-index: 2000;
     margin: 1rem;
-    margin-top: -12%;
 
 } 
 
 .modal-info {
     margin: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: -2rem;
     font-size: 1rem;
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 300px;
-    align-items: top;
+    align-items: center;
    
 }
 
@@ -2199,7 +2145,7 @@ footer {
     display: flex;
     font-size: 1.5rem;
     position: absolute;
-    left: 80%;
+    left: 90%;
     top: 5%;
     z-index: 2000;
 

@@ -441,9 +441,254 @@ const videoCollection = [
  ];
 
 
+//---------------all movies API-------------------
+const apiKey = `api_key=24a513429e165e4f7eacd8b1c75a8e58`
+const base_url = `https://api.themoviedb.org/3`
+const api_url = base_url + `/discover/movie?sort_by=popularity.desc&` + apiKey
+
+
+
+const imgUrl = `https://image.tmdb.org/t/p/w500`
+
+
+
+apiMovies(api_url)
+
+function apiMovies(url) {
+    
+    fetch(url)
+    .then(res => res.json())
+    .then(data => {
+
+       // console.log(data)
+        let dataMovies = data.results
+      //  console.log(dataMovies)
+
+        allMovies(dataMovies)
+
+        displayGenreBtn()
+
+        function displayGenreBtn ( ) {
+    
+ 
+            const genreReduce = genres.reduce(function(value, item) {
+            
+                if (!value.includes(item)) {
+                     value.push(item)
+                }
+
+                return value
+            
+            }, [])
+
+
+
+            let genreBtn = genreReduce.map(function(genre){
+
+
+                return` <button class="category-btn" data-category=${genre.id}>${genre.name}</button>`
+            
+            })
+
+            genreBtn = genreBtn.join('')
+            genreContainer.innerHTML = genreBtn
+
+            
+            
+            const categoryBtn = document.querySelectorAll(".category-btn")
+            const btnGenre = document.querySelector(".genre-btn")
+
+
+
+            categoryBtn.forEach(function(btn){
+            
+                btn.addEventListener("click", function(e){
+
+                    const category = e.currentTarget.dataset.category
+
+                 //   console.log(category)
+
+                     categoryBtn.forEach(function(item) {
+                          if (item !== btn) {
+                            item.classList.remove("btn-click")
+                          }
+                          else {
+                            item.classList.add("btn-click")
+                          }
+
+
+                     })
+
+
+
+                    const genreUrl = api_url + `&with_genres=` + encodeURI(category)
+
+                 //   console.log(genreUrl)
+
+                    fetch(genreUrl)
+                    .then(res => res.json())
+                    .then(dataGenre =>{
+
+                      //  console.log(dataGenre)
+                        let genre = dataGenre.results
+
+                        allMovies(genre)
+
+                    })
+
+                    /*---------------
+                    const filterCategory = dataMovies.filter(function (genre) {
+                 
+
+                        if (genre.genre_ids === category) {
+                            return genre
+                        }   
+            
+                    })
+                    -------------*/
+
+                    
+                 //   console.log(filterCategory)
+
+            
+                })
+            
+            })
+        
+        }
+        
+        
+
+    function allMovies(movie) {
+    
+        
+    let displayMovies = movie.map(function(item) {
+      
+      return`<article class="movies-card" style="background-image: url(${imgUrl + item.poster_path});">
+      <div class="card">
+          <div class="card-title">
+              <h2>${item.title}</h2>
+          </div>
+          <div class="card-desc">
+              <p>${item.overview}
+              </p>
+          </div>
+          
+          <button class="card-btn" data-id=${item.id}>watch</button>
+      </div>
+    </article>`
+
+  })
+
+  displayMovies = displayMovies.join('')
+  moivesContainer.innerHTML = displayMovies
+
+  }
+     const modalContainer = document.querySelector(".modal-container")
+      const videoModal = document.querySelector(".video-modal")
+    const cardBtn = document.querySelectorAll(".card-btn")
+
+    cardBtn.forEach(function(btn) {
+      btn.addEventListener("click", function(e) {
+       // console.log(e.currentTarget.dataset.id)
+
+        let modwatch = e.currentTarget.dataset.id
+
+        const modUrl = api_url + `/find/{external_id}` + encodeURI(modwatch)
+
+       //  console.log(modUrl)
+
+        fetch(base_url + `/movie/`+modwatch+`/videos?`+ apiKey)
+        .then(res => res.json())
+        .then(datavideo => {
+
+         //     console.log(datavideo)
+
+            
+
+          //---------show Modal
+          modalContainer.classList.add("show-modal")
+
+          if (datavideo.results.length > 0) {
+             const embed = [];
+
+            datavideo.results.forEach(function(video){
+
+              let {name, key, site} = video
+
+              if (site == 'Youtube') {
+
+                embed.push(
+                  `<iframe width="560" height="315" src="https://www.youtube.com/${key}" 
+                  title="${name}" frameborder="0" allow="accelerometer; autoplay; 
+                  clipboard-write; encrypted-media; 
+                  gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                )
+              }
+
+            })
+            embed.join('')
+            videoModal.innerHTML = embed
+
+          }
+          
+        })
+
+      })
+
+    })
+
+
+
+    })
+}
+
+const modalContainer2 = document.querySelector(".modal-container")
+const closeModal = document.querySelectorAll(".close-icon")
+
+closeModal.forEach(function(closeBtn){
+    closeBtn.addEventListener("click", function(){
+
+        modalContainer2.classList.remove("show-modal")
+        
+    })
+
+})
+
+//------X---------all movies API-------------X------
+//----X-------------My Movies Array----------------X------
+
+//----------------Header Slider------------------------------
     const slideHeader = document.querySelector(".slider-container")
 
+    function showHeader(head) {
 
+        let yearFilter = head.filter(function (trending) {
+            return trending.year === 2022
+        })
+        
+        let displayHead = yearFilter.map(function(item) {
+            
+            return`<div class="bg-slider" style="background-image:url(${item.img});">
+            <div class="bg-gradient">
+            <div class="banner-info">
+                <h3>${item.title}</h3>
+                <span class="info-desc">
+                    <p>
+                       ${item.desc}
+                    </p>
+                </span>
+
+               <button class="btn-banner">watch</button>
+             </div>
+            </div>   
+        </div>`
+
+        })
+        displayHead = displayHead.join('')
+        slideHeader.innerHTML = displayHead
+
+    }
 
 
 //---------X--------Header Slider-----------------X--------
@@ -455,219 +700,11 @@ const genreContainer = document.querySelector(".insidebox-btn")
 window.addEventListener("DOMContentLoaded", function() {
 
  
-    showmovies(videoCollection)
+
     showHeader(videoCollection)
-    btnInsert()
-  
 
 })
 
-function showHeader(head) {
 
-  let yearFilter = head.filter(function (trending) {
-      return trending.year === 2022
-  })
-  
-  let displayHead = yearFilter.map(function(item) {
-      
-      return`<div class="bg-slider" style="background-image:url(${item.img});">
-      <div class="bg-gradient">
-      <div class="banner-info">
-          <h3>${item.title}</h3>
-          <span class="info-desc">
-              <p>
-                 ${item.desc}
-              </p>
-          </span>
-
-         <button class="btn-banner">watch</button>
-       </div>
-      </div>   
-  </div>`
-
-  })
-  displayHead = displayHead.join('')
-  slideHeader.innerHTML = displayHead
-
-}
-
-
-function showmovies(mov) {
-  
-  let displayMovie = mov.map(function(item) {
-    
-    return`<article class="movies-card" style="background-image: url(${item.img});">
-    <div class="card">
-        <div class="card-title">
-            <h3>${item.title}</h2>
-        </div>
-        <div class="card-desc">
-            <p>
-            ${item.desc}
-            </p>
-        </div>
-        
-        <button class="card-btn" data-id=${item.id}>watch</button>
-    </div>
-</article>`
-
-  })
-  displayMovie = displayMovie.join('')
-  moivesContainer.innerHTML = displayMovie
-
-  const cardBtn = document.querySelectorAll(".card-btn")
-  cardBtn.forEach(watch)
-
-}
-
-const modalContainer = document.querySelector(".modal-container")
-let currentItem = 0;
-//-----------show modal category------
-function watch(btn) {
-  
-  btn.addEventListener("click", function (e) {
-   
-
-    const itemId = e.currentTarget.dataset.id
-    currentItem = `${itemId}`
-
-    console.log(currentItem)
-
-    showModal(videoCollection)
-    modalContainer.classList.add("show-modal")
-
-    })
-
-}
-
-
-function showModal(mod) {
-
-  let filterMod = mod.filter(function(list) {
-    return list.id == currentItem
-  })
-
-  let modDisplay = filterMod.map(function(item) {
-
-    return` <article class="box-modal">
-
-        <div class="img-banner" style="background-image: url(${item.img});">
-
-            <video controls  loop class="video-modal">
-            <source src="./video/morbius.mp4" type="video/mp4" /> 
-            </video>
-
-
-        </div>
-
-        <div class="close-icon">
-            <i class="fa-solid fa-circle-xmark"></i>
-        </div>
-
-        <div class="modal-info">
-            <div class="movies-title">
-                <h3>${item.title}e</h3>
-            </div>
-            <div class="category-info">
-                
-                <span class="year">${item.year} </span>
-                <span class="rated">/ Rated 16+ /</span>
-                <span class="category"> ${item.category}</span>
-
-            </div>
-
-            <div class="movies-info">
-                <p>
-                    ${item.desc}
-                </p>
-            </div>
-
-            <div class="social-icon">
-                <div class="sad-btn">
-                    <i class="fa-solid fa-face-sad-tear"></i>
-                </div>
-
-                <div class="like-btn">
-                    <i class="fa-solid fa-thumbs-up"></i>
-                </div>
-                <div class="hearth-btn">
-                    <i class="fa-solid fa-heart"></i>
-                </div>
-
-            </div>
-        </div>
-    </article>`
-    
-  })
-  modDisplay = modDisplay.join('')
-  modalContainer.innerHTML = modDisplay
-
-  const closMod = document.querySelector(".close-icon")
-
-  closMod.addEventListener("click", function() {
-
-    modalContainer.classList.remove("show-modal")
-
-  })
-
-}
-
-// -----------BTN function-------------------
-function btnInsert(){
-
-  //---- isnsert category btn dynamicall function---------
-let btnReduce = videoCollection.reduce(function(value, item) {
-  if (!value.includes(item.category)) {
-    value.push(item.category)
-  }
-  return value
-
-},['all'])
-
-const boxBtn = document.querySelector(".insidebox-btn")
-
-let newBtn = btnReduce.map(function(category) {
-return`<button class="category-btn" data-category=${category}>${category}</button>`
-
-})
-
-.join('')
-boxBtn.innerHTML = newBtn
-
-//--X--- isnsert category btn dynamicall function---------XXX
-
-//----category btn function------------
-const btnCategory = document.querySelectorAll(".category-btn")
-
-btnCategory.forEach(function (btn) {
-
-  btn.addEventListener("click", function(e) {
-  console.log(e.currentTarget.dataset.category)
-
-  const category = e.currentTarget.dataset.category
-
-  let filterCategory = videoCollection.filter(function(genres){
-    if (genres.category == category) {
-      return genres
-    }
-
-  })
-
-  if (category == 'all') {
-    showmovies(videoCollection)
-  }else{
-    showmovies(filterCategory)
-  }
-
-  })
-
-})
-
-//--X--category btn function------------XXX
-
-
-}
-// --X---------BTN function-------------------XXX
 
 //--------X---------Movies function----------X-------
-

@@ -496,7 +496,7 @@ a {
     border: 2px solid gold;
     color: white;
     margin: 4rem;
-    position: absolute; 
+    position: relative; 
 
 }
 
@@ -507,17 +507,12 @@ a {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 650px;
+    width: 550px;
     height: 350px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 0rem 3rem 0rem 3rem;
     box-shadow: 0 15px 20px var(--dark);
     z-index: 2000;
     margin: 1rem;
-    position: relative;
-}  
+} 
 
 .video-modal {
     top: 0;
@@ -525,7 +520,8 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 200;
+    box-shadow: 0 20px 30px var(--dark);
+
 }
 
 .img-movies {
@@ -581,21 +577,12 @@ a {
     display: flex;
     flex-direction: column;
     width: 100%;
-    width: 280px;
-    height: 320px;
-    justify-content: center;
-    padding: 0.5rem;
 
 }
 
-
-
 .category-info {
     display: flex;
-    flex-direction: row;
-    font-size: 0.7rem;
-    justify-content: center;
-    margin: 1rem;
+    flex-direction: column;
 }
 
 
@@ -610,11 +597,7 @@ a {
     display: flex;
     width: 100%;
     height: 200px;
-    align-items: top;
-    text-align: left;
-    letter-spacing: 1px;
-    overflow: hidden;
-    font-size: 0.8rem;
+    align-items: center;
 }
 
 .sad-btn, .like-btn, .hearth-btn {
@@ -631,8 +614,7 @@ a {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 40px;
-    color: white;  
+    color: white;
 
 }
 
@@ -716,8 +698,8 @@ a {
 
 .movies-card {
     display: flex;
-    width: 200px;
-    height: 300px;
+    width: 250px;
+    height: 400px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -760,19 +742,16 @@ a {
     justify-content: center;
     align-items: baseline;
     color: gold;
-    
 }
 
 .card-desc {
 
     width: 220px;
-    height: 200px;
-    align-items:top;
+    height: 230px;
+    align-items:center;
     display: flex;
     justify-content: center;
     overflow: hidden;
-    font-size: 0.8rem;
-    margin-top: -3rem;
 
 }
 
