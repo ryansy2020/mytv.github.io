@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>searbox</title>
+        <!---------Font awesome---------->
+        <link rel="stylesheet" href="./css/all.css">   
+        <!---X------Font awesome------X---->
+
+    <link rel="stylesheet" href="./css/searchbox.css">
+
+</head>
+<body>
+    <!------------------------Navigation---------------------------->
+    <header>
+        <nav class="nav">
+            <div class="main-nav">
+                <div class="nav-menu nav-flex">
+                    <div class="nav-logo">
+                        <img src="./images/mymovies logo2.svg" alt="logo" width="110">
+                    </div>
+
+                    <div class="nav-toggle">
+                        <div class="toggle-icon">
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
+                    </div>
+
+                    <div class="nav-item">
+                        <ul class="nav-list">
+                            <li class="nav-link"><a href="index.html">Home</a></li>
+                            <li class="nav-link"><a href="movies.html">Movies</a></li>
+                            <li class="nav-link"><a href="index.html#tv-series">TV-Series</a></li>
+                            <li class="nav-link"><a href="index.html#my-list">My-List</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="nav-user">
+                        <ul class="other-icon">    
+                            <li class="other-link">
+                                <div class="search-box">
+                                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
+                            </li>
+                            <li class="other-link">
+                                <div class="login-box">
+                                    <a href="#"><i class="fa-solid fa-user"></i></a>
+                                </div>
+                            </li>
+                            <li class="other-link">
+                                <div class="bell-box">
+                                    <a href="#"><i class="fa-solid fa-bell"></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+<!--------X----------------Navigation---------------X------------->
+
+<!-------------------------Main----------------------------->
+
+<!------------------------Movies Category--------------------------------->
+<section id="all-movies">
+    <div class="movies-title">
+        <h1>Search</h1>
+    </div>
+
+    <div class="search-input">
+        <div class="input-box">
+            <input type="text" placeholder="search" id="search-item">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        </div>
+
+
+    </div>
+
+    <div class="movies-container">
+
+        <!------------------------
+
+        <article class="movies-card" style="background-image: url(./images/batman.png);">
+            <div class="card">
+                <div class="card-title">
+                    <h2>Batman</h2>
+                </div>
+                <div class="card-desc">
+                    <p>Lorem ipsum dolor sit amet, 
+                        consectetur adipisicing elit. Quam dolor magni, 
+                        id officia nesciunt ex illo quaerat accusantium nisi itaque.
+                    </p>
+                </div>
+                
+                <button class="card-btn">watch</button>
+            </div>
+        </article>
+
+          ---------------------->
+
+    </div>
+</section>
+<!--------X----------------Movies Category---------------------X------------>
+
+<!--------X-----------------Main----------------------X------->
+
+<!------------------------Footer------------------------->
+<footer>
+
+    <div class="footer-container">
+        <div class="footer-info">
+            <div class="my-logo">
+                <img src="./images/mymovies logo2.svg" alt="" width="90">
+            </div>
+                <span class="visit">Chat me on</span>
+            <div class="footer-icon">
+              
+                    <a href="#"><i class="fa-brands fa-facebook-square"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram-square"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+             
+            </div>
+            <span class="copyright">
+                <p>copyright &copy; tribecaster my design <span id="date"> </span>
+                    .all rights reserved</p>
+            </span>
+        </div>
+    </div>
+
+</footer>
+<!-----------X-------------Footer------------X------------->
+
+    <script src="./js/searchbox.js"></script>
+</body>
+</html>

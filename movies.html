@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+
+        <!---------Font awesome---------->
+        <link rel="stylesheet" href="./css/all.css">   
+        <!---X------Font awesome------X---->
+    <link rel="stylesheet" href="./css/movies.css">
+</head>
+<body>
+
+
+<!------------------------Navigation---------------------------->
+    <header>
+        <nav class="nav">
+            <div class="main-nav">
+                <div class="nav-menu nav-flex">
+                    <div class="nav-logo">
+                        <img src="./images/mymovies logo2.svg" alt="logo" width="110">
+                    </div>
+
+                    <div class="nav-toggle">
+                        <div class="toggle-icon">
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
+                    </div>
+
+                    <div class="nav-item">
+                        <ul class="nav-list">
+                            <li class="nav-link"><a href="index.html">Home</a></li>
+                            <li class="nav-link"><a href="#">Movies</a></li>
+                            <li class="nav-link"><a href="index.html#tv-series">TV-Series</a></li>
+                            <li class="nav-link"><a href="index.html#my-list">My-List</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="nav-user">
+                        <ul class="other-icon">    
+                            <li class="other-link">
+                                <div class="search-box">
+                                    <a href="searchbox.html"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                </div>
+                            </li>
+                            <li class="other-link">
+                                <div class="login-box">
+                                    <a href="#"><i class="fa-solid fa-user"></i></a>
+                                </div>
+                            </li>
+                            <li class="other-link">
+                                <div class="bell-box">
+                                    <a href="#"><i class="fa-solid fa-bell"></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+<!--------X----------------Navigation---------------X------------->
+
+<!--------------------------Main---------------------------------->
+<main>
+    
+<!------------------------slider Header---------------------------->      
+
+<div class="slider-header">
+    <div class="slide-title">
+        <h2>Most Watch Movies</h2>
+    </div>
+
+    <div class="slidemovie-btn">
+        <button class="prevslider">
+            <i class="fa-solid fa-circle-chevron-left"></i>
+        </button>
+        <button class="nxtslider">
+            <i class="fa-solid fa-circle-chevron-right"></i>
+        </button>
+    </div>
+
+
+    <div class="slider-container slide snaps-inline">
+
+        <!-----------------------------------
+        <div class="bg-banner" style="background-image:url(./images/model7.png);">
+            <div class="bg-gradient">
+            <div class="banner-info">
+                <h1>the amazing title</h1>
+                <span class="info-desc">
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus, error.
+                    </p>
+                </span>
+
+               <button class="btn-banner">watch</button>
+             </div>
+            </div>   
+        </div>
+
+        ----------------------------------------->
+  
+    </div>
+
+  </div>
+
+<!--------X----------------slider Header--------------------X--------> 
+
+<!------------------------Movies Category--------------------------------->
+<section id="all-movies">
+    <div class="movies-title">
+        <h1>Movies</h1>
+    </div>
+    <div class="movies-btn">
+        <div class="insidebox-btn">
+    <!-- 
+        <button class="category-btn" data-category="all">all</button>
+     -->
+        </div>
+            
+    </div>
+
+        <!------------------Modal Movies------------------------>
+        <div class="modal-movies">
+            <div class="modal-container">
+                <article class="box-modal">
+                    <div class="img-banner" style="background-image: url(../images/doctorstrange.png);">
+    
+                        <div class="watch-button">
+                            <h1><i class="fa-solid fa-circle-play"></i></h1>
+                        </div>
+    
+                    </div>
+    
+                    <div class="close-icon">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </div>
+    
+                    <div class="modal-info">
+                        <div class="movies-title">
+                            <h2>Doctor strage</h2>
+                        </div>
+                        <div class="category-info">
+                            
+                            <span class="year">Year 2022</span>
+                            <span class="rated">Rated 16+</span>
+                            <span class="category">Action Adventure</span>
+    
+                        </div>
+    
+                        <div class="movies-info">
+                            <p>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                 A, iste? Quia esse minima expedita, sapiente molestiae voluptates
+                                  sit ducimus perspiciatis.
+                            </p>
+                        </div>
+    
+                        <div class="social-icon">
+                            <div class="sad-btn">
+                                <i class="fa-solid fa-face-sad-tear"></i>
+                            </div>
+    
+                            <div class="like-btn">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                            </div>
+                            <div class="hearth-btn">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+    
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <!-------------------Modal Movies----------------------->
+
+
+    <div class="movies-container">
+
+        <article class="movies-card" style="background-image: url(./images/batman.png);">
+            <div class="card">
+                <div class="card-title">
+                    <h2>Batman</h2>
+                </div>
+                <div class="card-desc">
+                    <p>Lorem ipsum dolor sit amet, 
+                        consectetur adipisicing elit. Quam dolor magni, 
+                        id officia nesciunt ex illo quaerat accusantium nisi itaque.
+                    </p>
+                </div>
+                
+                <button class="card-btn">watch</button>
+            </div>
+        </article>
+
+
+    </div>
+</section>
+<!--------X----------------Movies Category---------------------X------------>
+
+</main>
+<!--------------------------Main---------------------------------->
+
+<!------------------------Footer------------------------->
+<footer>
+
+    <div class="footer-container">
+        <div class="footer-info">
+            <div class="my-logo">
+                <img src="./images/mymovies logo2.svg" alt="" width="90">
+            </div>
+                <span class="visit">Chat me on</span>
+            <div class="footer-icon">
+              
+                    <a href="#"><i class="fa-brands fa-facebook-square"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram-square"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+             
+            </div>
+            <span class="copyright">
+                <p>copyright &copy; tribecaster my design <span id="date"> </span>
+                    .all rights reserved</p>
+            </span>
+        </div>
+    </div>
+
+</footer>
+<!-----------X-------------Footer------------X------------->
+
+</body>
+<script src="./js/movies.js"></script>
+</html>
