@@ -14,7 +14,7 @@
 ::-webkit-scrollbar-thumb {
     background: var(--dark);
     border-radius: 1rem;
-    border: 2px solid var(--lightDark);
+    border: 1px solid white;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -337,6 +337,7 @@ a {
     text-shadow: 0 3px 3px var(--dark);
     transition: 1s all ease-in-out;
     opacity: 0%;
+    background-color: rgba(11,11,11,70%);
  
    
 }

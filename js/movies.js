@@ -50,29 +50,29 @@ window.addEventListener("scroll", function(){
 
 //------------------Header Slider-------------------------------
 const bgSlider = document.querySelectorAll(".bg-slider")
-const prevSlider = document.querySelector(".prevslider")
-const nxtSlider = document.querySelector(".nxtslider")
+// const prevSlider = document.querySelector(".prevslider")
+// const nxtSlider = document.querySelector(".nxtslider")
 
-let count = 0
+let rolling = 0
 
-bgSlider.forEach(function(slider, index) {
+// bgSlider.forEach(function(slider, index) {
     
-    slider.style.left = `${index * 100}%`
+//     slider.style.left = `${index * 100}%`
 
-})
+// })
 
-nxtSlider.addEventListener("click", function() {
+// nxtSlider.addEventListener("click", function() {
+//   console.log("hello")
+//   rolling++  
+//     slideCarousel()
 
-  count++  
-    slideCarousel()
+// })
 
-})
+// prevSlider.addEventListener("click", function() {
+//     rolling--  
+//     slideCarousel()
 
-prevSlider.addEventListener("click", function() {
-    count--  
-    slideCarousel()
-
-  })
+//   })
 
   function slideCarousel() {
 
@@ -450,7 +450,7 @@ const api_url = base_url + `/discover/movie?sort_by=popularity.desc&` + apiKey
 
 const imgUrl = `https://image.tmdb.org/t/p/w500`
 
-
+const slideHeader = document.querySelector(".slider-container")
 
 apiMovies(api_url)
 
@@ -463,6 +463,8 @@ function apiMovies(url) {
        // console.log(data)
         let dataMovies = data.results
       //  console.log(dataMovies)
+
+        showHeader(dataMovies)
 
         allMovies(dataMovies)
 
@@ -557,7 +559,43 @@ function apiMovies(url) {
         
         }
         
+      
         
+//----------------Header Slider------------------------------
+
+
+function showHeader(head) {
+
+    // let yearFilter = head.filter(function (trending) {
+    //     return trending.year === 2023
+    // })
+    
+    let displayHead = head.map(function(item) {
+        
+        return`<div class="bg-slider" style="background-image:url(${imgUrl + item.poster_path});">
+        <div class="bg-gradient">
+        <div class="banner-info">
+            <h3>${item.title}</h3>
+            <span class="info-desc">
+                <p>
+                   ${item.overview}
+                </p>
+            </span>
+
+           <button class="btn-banner">watch</button>
+         </div>
+        </div>   
+    </div>`
+
+    })
+    displayHead = displayHead.join('')
+    slideHeader.innerHTML = displayHead
+
+}
+
+
+//---------X--------Header Slider-----------------X--------
+
 
     function allMovies(movie) {
     
@@ -624,11 +662,13 @@ function apiMovies(url) {
                   clipboard-write; encrypted-media; 
                   gyroscope; picture-in-picture" allowfullscreen></iframe>`
                 )
+
+                embed.join('')
+                videoModal.innerHTML = embed
               }
 
             })
-            embed.join('')
-            videoModal.innerHTML = embed
+   
 
           }
           
@@ -658,40 +698,7 @@ closeModal.forEach(function(closeBtn){
 //------X---------all movies API-------------X------
 //----X-------------My Movies Array----------------X------
 
-//----------------Header Slider------------------------------
-    const slideHeader = document.querySelector(".slider-container")
 
-    function showHeader(head) {
-
-        let yearFilter = head.filter(function (trending) {
-            return trending.year === 2022
-        })
-        
-        let displayHead = yearFilter.map(function(item) {
-            
-            return`<div class="bg-slider" style="background-image:url(${item.img});">
-            <div class="bg-gradient">
-            <div class="banner-info">
-                <h3>${item.title}</h3>
-                <span class="info-desc">
-                    <p>
-                       ${item.desc}
-                    </p>
-                </span>
-
-               <button class="btn-banner">watch</button>
-             </div>
-            </div>   
-        </div>`
-
-        })
-        displayHead = displayHead.join('')
-        slideHeader.innerHTML = displayHead
-
-    }
-
-
-//---------X--------Header Slider-----------------X--------
 
 //-----------------Movies function-----------------
 const moivesContainer = document.querySelector(".movies-container")
@@ -701,7 +708,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
  
 
-    showHeader(videoCollection)
+    // showHeader(videoCollection)
 
 })
 

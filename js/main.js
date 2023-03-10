@@ -111,16 +111,16 @@ function next(t){
     
  
 
-    if (counter > item.length) {
+    // if (counter > item.length) {
         
-        btn.classList.add("show-btn")
-    console.log(btn)
+    //     btn.classList.add("show-btn")
+    // console.log(btn)
 
-    }
+    // }
 
-    if (counter === 7) {
-        btnNext.style.visibility = 'hidden'
-    }
+    // if (counter === item.length) {
+    //     btnNext.style.visibility = 'hidden'
+    // }
 
 
 
@@ -144,13 +144,13 @@ function prev(t) {
     rollLeft.scrollBy(-300, 0)
 
    
-    if (counter <= 7) {
+    if (counter >= 7) {
         
         btnNext.style.visibility = 'visible'
         console.log("hello")
     }
 
-    if (counter <= 0) {
+    if (counter >= rollLeft.length) {
         btn.classList.remove("show-btn")
     }
    
@@ -590,42 +590,42 @@ function showModal(mod) {
 const trailerlist = [
     {
         id: 1,
-        title: "doctor strange",
-        img: "../images/doctorstrange.png",
-        video: "../video/video.mp4",
-        desc: `Doctor Strange, with the help of mystical allies both old and new, 
-        traverses the mind-bending and dangerous alternate realities of the 
-        Multiverse to confront a mysterious new adversary.`,
+        title: "black adam",
+        img: "../images/blackadam.png",
+        video: "https://www.youtube-nocookie.com/embed/X0tOpBuYasI",
+        desc: `Nearly 5,000 years after he was bestowed with the almighty powers of the
+        Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, 
+        ready to unleash his unique form of justice on the modern world..`,
     },
 
     {
         id: 2,
-        title: "spiderman noway home",
-        img: "../images/spiderman.png",
-        video: "../video/spiderman2022.mp4",
-        desc: `Doctor Strange, with the help of mystical allies both old and new, 
-        traverses the mind-bending and dangerous alternate realities of the 
-        Multiverse to confront a mysterious new adversary.`,
+        title: "Black Panther: Wakanda Forever",
+        img: "../images/wakandaforever.png",
+        video:"https://www.youtube.com/embed/YN6N3jIu4ds",
+        desc: `Queen Ramonda, Shuri, M’Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers 
+        in the wake of King T’Challa’s death. As the Wakandans strive to embrace their next chapter, 
+        the heroes must band together with the help of War Dog Nakia and Everett Ross and forge a new path for the kingdom of Wakanda.`,
     },
     
     {
         id: 3,
-        title: "morbius",
-        img: "../images/mobius.png",
-        video: "../video/morbius.mp4",
-        desc: `Doctor Strange, with the help of mystical allies both old and new, 
-        traverses the mind-bending and dangerous alternate realities of the 
-        Multiverse to confront a mysterious new adversary.`,
+        title: "Avatar: The Way of Water",
+        img: "../images/avatar2.png",
+        video:"https://www.youtube.com/embed/6_-6g9pKK9g",
+        desc: `Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their 
+            kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, 
+            and the tragedies they endure`,
     },
     
     {
         id: 4,
-        title: "uncharter",
-        img: "../images/uncharrter.png",
-        video: "../video/video2.mp4",
-        desc: `Doctor Strange, with the help of mystical allies both old and new, 
-        traverses the mind-bending and dangerous alternate realities of the 
-        Multiverse to confront a mysterious new adversary.`,
+        title: "Puss in Boots: The Last Wish",
+        img: "../images/pushboots.png",
+        video: "https://www.youtube.com/embed/RqrXhwS33yc",
+        desc: `Puss in Boots discovers that his passion for adventure has taken its toll: 
+        He has burned through eight of his nine lives, leaving him with only one life left. Puss sets out on an epic journey to 
+        find the mythical Last Wish and restore his nine lives.`,
     },
     
 ]
@@ -638,7 +638,7 @@ const videoCollection = [
         title: "Doctor Strange Multiverse of Madness",
         category: ['action','adventure'],
         year: 2022,
-        img: "./images/doctorstrange.png",
+        img: "https://youtu.be/aWzlQ2N6qqg?t=70",
         video:"../video/video4.mp4",
         desc: `Doctor Strange, with the help of mystical allies both old and new, 
         traverses the mind-bending and dangerous alternate realities of the 
@@ -652,7 +652,7 @@ const videoCollection = [
         category: ['action','adventure'],
         year: 2022,
         img: "./images/spiderman.png",
-        video:"../video/spiderman2022.mp4",
+        video:"https://youtu.be/JfVOs4VSpmA",
         desc: `Doctor Strange, with the help of mystical allies both old and new, 
         traverses the mind-bending and dangerous alternate realities of the 
         Multiverse to confront a mysterious new adversary.`,
@@ -665,7 +665,7 @@ const videoCollection = [
         category: ['action','adventure','horror'],
         year: 2022,
         img: "../images/mobius.png",
-        video:"../video/morbius.mp4",
+        video:"https://youtu.be/oZ6iiRrz1SY?t=11",
         desc: `Dangerously ill with a rare blood disorder, and determined to save others suffering 
         his same fate, Dr. Michael Morbius attempts a desperate gamble. What at first appears to be a radical 
         success soon reveals itself to be a remedy potentially worse than the disease.`,
@@ -1127,35 +1127,39 @@ function displayTrailer(watch) {
         item = watch[currentItem]
 
         return`<article class="title-header">
-            <div class="video-background">
-                <video controls muted autoplay loop class="video-container">
-                            <source src=${item.video} type="video/mp4" /> 
-                        </video>
-            </div>
-                     <div class="title-box">
+                        <div class="video-background">
+                        
+                        <iframe width="560" height="315" src="${item.video}" 
+                        title="YouTube video player" frameborder="0" allow="accelerometer; 
+                        autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                    
+                        </div>
 
-                        <div class="box-title">
-                         <h1>${item.title}</h1>
-                         <div class="title-info">
-                             <p>${item.desc}</p>
-                         </div>
-                            <div class="title-btn">
-                                <button class="title-watch">watch</button>
+                        <div class="title-box">
+
+                            <div class="box-title">
+                            <h1>${item.title}</h1>
+                            
+                                <div class="title-info">
+                                    <p>${item.desc}</p>
+                                </div>
+                                <div class="title-btn">
+                                    <button class="title-watch">watch</button>
+                                </div>
+
+                            </div>
+
+                            <div class="trailer-container">
+                                <ul class="trailer-list">
+                                        
+                                
+                                </ul>
+                    
                             </div>
 
                         </div>
 
-                        <div class="trailer-container">
-                            <ul class="trailer-list">
-                                      
-                            
-                            </ul>
-                
-                        </div>
-
-                     </div>
-
-                    </article>`
+                </article>`
 
     })
     trailer = trailer.join("")
@@ -1311,7 +1315,7 @@ const weekdays = [
   const weekday = weekdays[futureDate.getDay()]
   console.log(weekday)
 
-  soonInfo.textContent = `Thor Love & Thurder showing on mytv on ${weekday} ${month}, ${date} ${year}
+  soonInfo.textContent = `Ant-Man and the Wasp: Quantumania showing on mytv on ${weekday} ${month}, ${date} ${year}
    at ${hour}:${min}am`
 
   const futureTime = futureDate.getTime()
